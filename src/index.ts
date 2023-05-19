@@ -4,13 +4,10 @@ import { usersDb } from "./database/users";
 
 const app = express();
 app.use(express.json());
-// app.use();
 
 app.post("/users", (req: Request, res: Response) => {
   try {
     const { name, cpf, email, age } = req.body;
-
-    console.log(name);
 
     if (!name) {
       return res.status(400).send({
@@ -45,7 +42,7 @@ app.post("/users", (req: Request, res: Response) => {
 
     return res.status(201).send({
       ok: true,
-      message: "Growdever was successfully created",
+      message: "User was successfully created",
       data: user,
     });
   } catch (error: any) {
