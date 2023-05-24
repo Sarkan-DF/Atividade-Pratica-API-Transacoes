@@ -1,57 +1,12 @@
 import express, { Request, Response } from "express";
 import { User } from "./models/user";
 import { usersDb } from "./database/users";
+import { userRoutes } from "./routes/user.routes";
 
 const app = express();
 app.use(express.json());
 
-app.post("/users", (req: Request, res: Response) => {
-  try {
-    const { name, cpf, email, age } = req.body;
-
-    if (!name) {
-      return res.status(400).send({
-        ok: false,
-        message: "Nomes was not provided",
-      });
-    }
-
-    if (!cpf) {
-      return res.status(400).send({
-        ok: false,
-        message: "Cpf was not provided",
-      });
-    }
-
-    if (!email) {
-      return res.status(400).send({
-        ok: false,
-        message: "Email was not provided",
-      });
-    }
-
-    if (!age) {
-      return res.status(400).send({
-        ok: false,
-        message: "Age was not provided",
-      });
-    }
-
-    const user = new User(name, cpf, email, age);
-    usersDb.push(user);
-
-    return res.status(201).send({
-      ok: true,
-      message: "User was successfully created",
-      data: user,
-    });
-  } catch (error: any) {
-    return res.status(500).send({
-      ok: false,
-      message: "Erro interno",
-    });
-  }
-});
+app.use("/user/add", userRoutes());
 
 app.listen(3333, () => {
   console.log("API is running...");
