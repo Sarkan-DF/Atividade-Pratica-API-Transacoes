@@ -30,6 +30,15 @@ export class User {
     return this._age;
   }
 
+  public toJson() {
+    return {
+      name: this._name,
+      cpf: this._cpf,
+      email: this._email,
+      age: this._age,
+    };
+  }
+
   public get transactions(): Transactions[] {
     return this._transactions;
   }
