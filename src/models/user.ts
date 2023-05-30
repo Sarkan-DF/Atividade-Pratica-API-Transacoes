@@ -18,16 +18,32 @@ export class User {
     return this._name;
   }
 
+  public set name(name: string) {
+    this._name = name;
+  }
+
   public get cpf(): string {
     return this._cpf;
+  }
+
+  public set cpf(cpf: string) {
+    this._cpf = cpf;
   }
 
   public get email(): string {
     return this._email;
   }
 
+  public set email(email: string) {
+    this._email = email;
+  }
+
   public get age(): number {
     return this._age;
+  }
+
+  public set age(age: number) {
+    this._age = age;
   }
 
   public toJson() {
@@ -36,6 +52,7 @@ export class User {
       cpf: this._cpf,
       email: this._email,
       age: this._age,
+      id: this.id,
     };
   }
 
