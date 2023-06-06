@@ -18,7 +18,7 @@ export class ApiResponse {
   public static notProvided(res: Response, field: string) {
     return res.status(400).send({
       ok: false,
-      message: `${field} não fornecido.`,
+      message: `${field} não fornecido..`,
     });
   }
 
