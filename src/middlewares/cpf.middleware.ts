@@ -22,7 +22,7 @@ export const cpfCheck = (req: Request, res: Response, next: NextFunction) => {
   if (existeCpf) {
     return res.status(403).send({
       ok: false,
-      message: "Cpf já cadastrado",
+      message: "Cpf já cadastrado.",
     });
   }
   next();
