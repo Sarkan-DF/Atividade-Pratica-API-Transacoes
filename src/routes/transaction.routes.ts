@@ -11,6 +11,8 @@ export const transactionRoutes = () => {
   app.post("/", [transactionCheck], new TransactionController().create);
   app.get("/:transactionid", new TransactionController().get);
   app.get("/", new TransactionController().list);
+  app.delete("/:transactionid", new TransactionController().delete);
+  app.put("/:transactionid", new TransactionController().update);
 
   return app;
 };
