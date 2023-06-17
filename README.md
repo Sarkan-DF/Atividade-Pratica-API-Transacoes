@@ -2,4 +2,4 @@
 
 Atividade Prática - Prog. Assíncrona e API
 
-Atividade prática onde fizemos uma api de trazanções bancarias em typeScript. 
+Atividade prática onde fizemos uma api de transações bancarias em TypeScript.
