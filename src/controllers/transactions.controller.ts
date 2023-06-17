@@ -17,7 +17,13 @@ export class TransactionController {
 
       const transaction = new Transactions(title, value, type);
       existeUser.transactions.push(transaction);
-      return ApiResponse.success(res, "teste!", existeUser);
+      console.log(existeUser);
+
+      return ApiResponse.success(
+        res,
+        "teste!",
+        existeUser.transactions.map((user) => user.toJsonT())
+      );
 
       //   return ApiResponse.success(res, "Usuario criado com sucesso!", user);
     } catch (error: any) {
